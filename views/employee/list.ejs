@@ -27,8 +27,8 @@
                 <td><%=data[i].salary%></td>
                 <td><%=data[i].hire_date%></td>
                 <td>
-                    <a class="a-inside edit" href="../employees/edit/<%=data[i].id%>">Edit</a>
-                    <a class="a-inside delete" href="../employees/delete/<%=data[i].id%>">Delete</a>
+                    <a class="a-inside edit" onClick="editUser;">Edit</a>
+                    <a class="a-inside delete" onClick="deleteUser;">Delete</a>
                 </td>
             </tr>
             <% }
