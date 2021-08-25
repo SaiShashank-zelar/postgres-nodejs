@@ -1,5 +1,5 @@
 const { Client } = require('pg');
-var connectionString = "postgres://shashank:12345@localhost:5432/sheshu";
+var connectionString = "postgres://shashank:shashank@localhost:5432/sheshu";
 
 const client = new Client({
     connectionString: connectionString
