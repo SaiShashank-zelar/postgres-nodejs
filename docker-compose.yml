@@ -10,6 +10,7 @@ services:
 
   postgres:
     image: kiasaki/alpine-postgres:9.5
+    container_name: postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=12345
