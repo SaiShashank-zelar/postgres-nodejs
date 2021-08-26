@@ -4,24 +4,31 @@ services:
     image: sheshuvalandas/project
     container_name: nodejs
     ports:
-    - "80:4000"
+      - 80:4000
+
+    environment:
+      connectionString: postgres://postgres:12345@db:5432/sheshu
+      PORT: 4000
+
     depends_on:
     - postgres
-    environment:
-      - connectionString=postgres://postgres:12345@db:5432/sheshu
-      - PORT=4000
+
+    links:
+      - postgres
+
+
 
   postgres:
     image: postgres:9.3
     container_name: postgres
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=12345
-      - POSTGRES_DB=sheshu
-    volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+    restart: always
     ports:
-      - "5432:5432"
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: sheshu
+
 
 
 
