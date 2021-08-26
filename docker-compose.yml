@@ -12,8 +12,8 @@ services:
       - PORT=4000
 
   postgres:
-    image: postgres
-    container_name: postgres:9.3
+    image: postgres:9.3
+    container_name: postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=12345
