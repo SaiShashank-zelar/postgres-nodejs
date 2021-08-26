@@ -13,14 +13,13 @@ services:
 
   postgres:
     image: postgres
-    container_name: postgres
+    container_name: postgres:9.3
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=12345
       - POSTGRES_DB=sheshu
-    restart: unless-stopped
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - ./data/postgres:/var/lib/postgresql/data
     ports:
       - "5432:5432"
 
