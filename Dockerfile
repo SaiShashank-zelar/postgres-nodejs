@@ -4,5 +4,4 @@ WORKDIR      /app/postgres
 COPY         .  /app/postgres
 WORKDIR      /app/postgres
 RUN          npm install
-EXPOSE       80
 CMD          [ "node", "app.js"]
