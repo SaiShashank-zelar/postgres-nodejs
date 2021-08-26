@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  nodejs:
+    image: sheshuvalandas/project
+    container_name: nodejs
+    ports:
+    - "80:4000"
+    depends_on:
+    - postgres
+
+  postgres:
+    image: kiasaki/alpine-postgres:9.5
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=sheshu
+    ports:
+      - '5555:5432'
+    volumes:
+      - database:/var/lib/postgresql/data
+
+
