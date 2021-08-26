@@ -7,16 +7,16 @@ services:
     - "80:4000"
     depends_on:
     - postgres
+    environment:
+      - DATABASE_URL=postgres://postgres:12345@db:5432/sheshu
+      - PORT=4000
 
   postgres:
-    image: kiasaki/alpine-postgres:9.5
-    container_name: postgres
+    image: postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=12345
       - POSTGRES_DB=sheshu
-    ports:
-      - '5555:5432'
 
 
 
