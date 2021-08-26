@@ -11,14 +11,12 @@ services:
       PORT: 4000
 
     depends_on:
-    - postgres
+      - postgres
 
     links:
       - postgres
 
-
-
-  postgres:
+  db:
     image: postgres:9.3
     container_name: postgres
     restart: always
