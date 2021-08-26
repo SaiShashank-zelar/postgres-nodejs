@@ -4,7 +4,7 @@ services:
     image: sheshuvalandas/project
     container_name: nodejs
     ports:
-      - 80:4000
+      - 4000:4000
 
     environment:
       connectionString: postgres://postgres:12345@db:5432/sheshu
