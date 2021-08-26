@@ -14,9 +14,8 @@ services:
       - db
 
     links:
-      - db
-    networks:
-      - db
+      - "db:database"
+
 
   db:
     image: postgres:9.3
