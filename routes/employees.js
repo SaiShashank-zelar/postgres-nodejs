@@ -1,8 +1,13 @@
 const { Client } = require('pg');
-var connectionString = "postgres://postgres:12345@localhost:5432/sheshu";
+//var connectionString = "postgres://postgres:12345@localhost:5432/sheshu";
 
 const client = new Client({
-    connectionString: connectionString
+    //connectionString: connectionString
+    host: "postgres-db",
+    user: "postgres",
+    port: 5432,
+    password: "12345"
+    database: "sheshu"
 });
 
 client.connect();
