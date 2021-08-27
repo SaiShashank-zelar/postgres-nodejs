@@ -27,7 +27,7 @@ services:
 
     environment:
      # connectionString: postgres://postgres:12345@postgres-db:5432/sheshu
-      - ConnectionString__DefaultConnection=Server=postgres-db;Port=5432;database=postgres;User Id=postgres;Password=12345;MultipleActiveResultSets=True;
+      - ConnectionStrings_DefaultConnection=Server=postgres-db;database=postgres;User Id=postgres;Password=12345
 
     depends_on:
       - postgres-db
