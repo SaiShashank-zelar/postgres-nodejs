@@ -7,7 +7,7 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: postgres
+      PSQL_USER: postgres
       POSTGRES_PASSWORD: 12345
       POSTGRES_DB: sheshu
     volumes:
