@@ -1,8 +1,8 @@
 version: "3.9"
 services:
-  postgres:
+  postgres-db:
     image: postgres
-    container_name: postgres
+    container_name: postgres-db
     restart: always
     networks:
       - webnet
@@ -25,12 +25,12 @@ services:
     ports:
       - "4000:4000"
     environment:
-      connectionstring: postgres://postgres:12345@postgres:5432/sheshu
+      connectionstring: postgres://postgres:12345@postgres-db:5432/sheshu
       #- connectionString=Server=db,5432;database=sheshu;User Id=postgres;Password=12345
     depends_on:
-      - postgres
+      - postgres-db
     links:
-      - postgres
+      - postgres-db
 networks:
   webnet:
 
