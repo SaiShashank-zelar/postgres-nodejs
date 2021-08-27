@@ -25,6 +25,8 @@ services:
       - connectionString=Server=localhost,5432;database=sheshu;User Id=postgres;Password=12345
     depends_on:
       - db
+    links:
+      - db
 
 volumes:
   sheshu-db:
