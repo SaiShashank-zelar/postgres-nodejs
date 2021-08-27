@@ -22,11 +22,9 @@ services:
       - "4000:4000"
 
     environment:
-      - 'connectionString:DbConnection=postgres://postgres:12345@db:5432/sheshu'
+      - connectionString=Server=localhost,5432;database=sheshu;User Id=postgres;Password=12345
     depends_on:
       - db
-    links:
-      - "db:database"
 
 volumes:
   sheshu-db:
