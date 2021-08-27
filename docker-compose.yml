@@ -6,8 +6,6 @@ services:
     restart: always
     networks:
       - webnet
-    ports:
-      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345
@@ -25,9 +23,9 @@ services:
     ports:
       - "4000:4000"
 
-    environment:
+   # environment:
      # connectionString: postgres://postgres:12345@postgres-db:5432/sheshu
-      - ConnectionStrings_DefaultConnection=Server=postgres-db;database=postgres;User Id=postgres;Password=12345
+      #- ConnectionStrings_DefaultConnection=Server=postgres-db;database=postgres;User Id=postgres;Password=12345
 
     depends_on:
       - postgres-db
