@@ -25,11 +25,11 @@ services:
     ports:
       - "4000:4000"
     environment:
-
-      - connectionString=Server=postgres-db,5432;database=sheshu;User Id=postgres;Password=12345
+      DB_SCHEMA: sheshu
+      DB_USER: postgres
+      DB_PASSWORD: 12345
+      DB_HOST: postgres-db
     depends_on:
-      - postgres-db
-    links:
       - postgres-db
 networks:
   webnet:
