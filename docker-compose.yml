@@ -11,7 +11,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345
-      POSTGRES_DB: sheshu
+      POSTGRES_DB: postgres
     volumes:
       - sheshu-db:/var/lib/postgresql/data
       - ./create-table.sql:/docker-entrypoint-initdb.d/create_tables.sql
