@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  db:
+  postgres:
     image: postgres
     container_name: postgres
     restart: always
@@ -28,9 +28,9 @@ services:
       connectionstring: postgres://postgres:12345@postgres:5432/sheshu
       #- connectionString=Server=db,5432;database=sheshu;User Id=postgres;Password=12345
     depends_on:
-      - db
+      - postgres
     links:
-      - db
+      - postgres
 networks:
   webnet:
 
