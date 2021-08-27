@@ -22,7 +22,6 @@ services:
 
     environment:
       - 'connectionString:DbConnection=postgres://postgres:12345@db:5432/sheshu'
-      PORT: 4000
     depends_on:
       - db
     links:
