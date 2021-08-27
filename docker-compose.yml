@@ -25,8 +25,8 @@ services:
     ports:
       - "4000:4000"
     environment:
-      connectionString: db
-      #- connectionString=Server=localhost,5432;database=sheshu;User Id=postgres;Password=12345
+
+      - connectionString=Server=db,5432;database=sheshu;User Id=postgres;Password=12345
     depends_on:
       - db
     links:
