@@ -16,7 +16,7 @@ services:
 
 
   nodejs:
-    image: sheshuvalandas/employee
+    image: sheshuvalandas/employe
     container_name: nodejs
     networks:
       - webnet
