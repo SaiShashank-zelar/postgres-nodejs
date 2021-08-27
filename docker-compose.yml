@@ -25,7 +25,7 @@ services:
     ports:
       - "4000:4000"
     environment:
-      - ConnectionString__DefaultConnection=Server=postgres-db;Port=5432;database=sheshu;User Id=postgres;Password=12345
+      - ConnectionString__DefaultConnection=Server=postgres-db;Port=5432;database=sheshu;User Id=postgres;Password=12345;MultipleActiveResultSets=True;
     depends_on:
       - postgres-db
 
