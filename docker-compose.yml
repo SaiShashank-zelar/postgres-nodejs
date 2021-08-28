@@ -4,12 +4,10 @@ services:
     image: postgres
     container_name: postgres-db
     restart: always
-    networks:
-      - webnet
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345
-      POSTGRES_DB: postgres
+      POSTGRES_DB: sheshu
     volumes:
       - sheshu-db:/var/lib/postgresql/data
       - ./create-table.sql:/docker-entrypoint-initdb.d/create_tables.sql
@@ -18,25 +16,14 @@ services:
   nodejs:
     image: sheshuvalandas/employe
     container_name: nodejs
-    networks:
-      - webnet
     ports:
       - "4000:4000"
 
     environment:
-      DB_HOST: postgres-db
-      DB_USER: postgres
-      DB_PORT: 5432
-      DB_PASSWORD: 12345
-      DB_SCHEMA: postgres
-     # connectionString: postgres://postgres:12345@postgres-db:5432/sheshu
-      #- ConnectionStrings_DefaultConnection=Server=postgres-db;database=postgres;User Id=postgres;Password=12345
-
+      DATABASE_URL: postgres://postgres:12345@postgres-db:5432/sheshu
+    command: node app.js
     depends_on:
       - postgres-db
-
-networks:
-  webnet:
 
 volumes:
   sheshu-db:
