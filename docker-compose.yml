@@ -8,9 +8,9 @@ services:
     links:
       - postgres
     environment:
-      DATABASE_URL: postgres://postgres:12345@postgres:5432/sheshu
-      PORT: 4000
-      WAIT_HOSTS: postgres:5432
+      - DATA_SOURCE=postgres://postgres:12345@postgres:5432/sheshu
+      - PORT=4000
+      - WAIT_HOSTS=postgres:5432
     ports:
       - "4000:4000"
 
@@ -19,11 +19,11 @@ services:
     container_name: postgres
     ports:
       - "5432:5432"
-    restart: always
+    restart: on-failure
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 12345
-      POSTGRES_DB: sheshu
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=sheshu
     volumes:
       - ./create-table.sql:/docker-entrypoint-initdb.d/create_tables.sql
 
