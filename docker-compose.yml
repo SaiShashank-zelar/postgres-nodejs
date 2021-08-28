@@ -5,11 +5,10 @@ services:
     container_name: nodejs
     depends_on:
       - postgres
-    command: sh -c 'while !</dev/tcp/db/5432; do sleep 1; done; node app.js'
     environment:
       DATABASE_URL: postgres://postgres:12345@postgres:5432/sheshu
-      NODE_ENV: development
       PORT: 4000
+      WAIT_HOSTS: postgres:5432
     ports:
       - "4000:4000"
 
