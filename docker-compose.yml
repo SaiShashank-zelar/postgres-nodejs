@@ -5,7 +5,8 @@ services:
     container_name: nodejs
     depends_on:
       - postgres
-    command: sh -c 'while ! curl http://$POSTGRES_PORT_5432_TCP_ADDR:$POSTGRES_PORT_5432_TCP_PORT/ 2>&1 | grep '52' ; do sleep 1; done; node app.js'
+    links:
+      - postgres
     environment:
       DATABASE_URL: postgres://postgres:12345@postgres:5432/sheshu
       PORT: 4000
