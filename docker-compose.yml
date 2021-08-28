@@ -16,7 +16,7 @@ services:
       - /app/postgres/node_modules
 
   postgres-db:
-    image: postgres
+    image: postgres:10.4
     container_name: postgres-db
     ports:
       - "5432:5432"
