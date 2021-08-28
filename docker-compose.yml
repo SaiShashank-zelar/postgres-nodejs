@@ -7,15 +7,9 @@ services:
       - postgres
     environment:
       DATABASE_URL: postgres://postgres:12345@postgres:5432/sheshu
-      NODE_ENV: development
       PORT: 4000
     ports:
       - "4000:4000"
-
-    command: node app.js
-    volumes:
-      - .:/app/
-      - /app/postgres/node_modules
 
   postgres:
     image: postgres:10.4
