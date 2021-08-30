@@ -1,28 +1,28 @@
 version: "3.9"
 services:
+  postgres:
+    image: postgres:latest
+
   nodejs:
-    build: .
+    build:
+      context: .
     container_name: nodejs
-    depends_on:
-      - postgres
+    volumes:
+      - /app/node_modules # Inside the container, don't try to override this folder, just leave as is
+      - .:/app # Look at the server directory and copy everything into the app folder in the container
+      - ./create-table.sql:/docker-entrypoint-initdb.d/create_tables.sql
     environment:
-      DATABASE_URL: "postgres://postgres:12345@postgres:5432/sheshu"
-      PORT: 4000
+      ##DATABASE_URL: "postgres://postgres:12345@postgres:5432/sheshu"
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=sheshu
+      - PGPASSWORD=12345
+      - PGPORT=5432
     ports:
       - "4000:4000"
 
-  postgres:
-    image: postgres:10.4
-    container_name: postgres
-    ports:
-      - "5432:5432"
-    restart: on-failure
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=12345
-      - POSTGRES_DB=sheshu
-    volumes:
-      - ./create-table.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+
 
 
 

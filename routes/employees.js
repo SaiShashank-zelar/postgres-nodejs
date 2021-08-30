@@ -1,9 +1,19 @@
+require('dotenv').config();
+
+// Config
+const config = require('./config');
 const { Client } = require('pg');
-var connectionString = process.env.DATABASE_URL || 'postgres://postgres:12345@localhost:5432/sheshu';
+/*var connectionString = process.env.DATABASE_URL || 'postgres://postgres:12345@localhost:5432/sheshu';*/
 
 const client = new Client({
-    connectionString: connectionString
+    /*connectionString: connectionString*/
+      user: config.pgUser,
+      host: config.pgHost,
+      database: config.pgDatabase,
+      password: config.pgPassword,
+      port: config.pgPort
 });
+client.on('error', () => console.log('Lost Postgres connection'));
 
 client.connect();
 
