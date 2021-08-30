@@ -6,7 +6,7 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgres://postgres:12345@postgres:5432/sheshu
+      DATABASE_URL: "postgres://postgres:12345@postgres:5432/sheshu"
       PORT: 4000
     ports:
       - "4000:4000"
